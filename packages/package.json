@@ -1,0 +1,41 @@
+{
+  "name": "create-react-component",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server",
+    "prebuild": "rm -rf ./build",
+    "build": "webpack --config ./webpack/webpack.prod.js --progress"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.42",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.42",
+    "@babel/preset-flow": "^7.0.0-beta.40",
+    "@babel/preset-react": "^7.0.0-beta.40",
+    "babel-eslint": "^8.0.3",
+    "babel-loader": "^8.0.0-beta",
+    "ejs": "^2.5.8",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-xo": "^0.20.1",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.5.1",
+    "express": "^4.16.2",
+    "flow-bin": "^0.66.0",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-middleware": "^1.12.2",
+    "webpack-hot-middleware": "^2.21.0",
+    "webpack": "^4.2.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}
