@@ -10,7 +10,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^2.3.2",
     "meow": "^4.0.0",
     "validate-npm-package-name": "^3.0.0"
+  },
+  "devDependencies": {
+    "xo": "^0.20.3"
   }
 }
