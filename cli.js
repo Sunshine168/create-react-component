@@ -3,6 +3,7 @@
 const meow = require("meow");
 const fs = require("fs");
 const validateProjectName = require("validate-npm-package-name");
+const chalk = require("chalk");
 const path = require("path");
 
 const DIR = process.cwd();
@@ -19,15 +20,15 @@ let appName;
 
 function install(dir, name) {
   if (!name) {
-    // error handle
-    return;
+    console.error(`${chalk.red("appName cant be null")}`);
+    process.exit(1);
   }
 
   appName = name;
 
   const validationResult = validateProjectName(appName);
+
   if (!validationResult.validForNewPackages) {
-    //  if (!validationResult.validForNewPackages) {
     console.error(
       `Could not create a project called ${chalk.red(
         `"${appName}"`
@@ -43,24 +44,30 @@ function install(dir, name) {
   try {
     fs.mkdirSync(`${DIR}/${appName}`);
     createDirectoryContents(packagesPath, newProjectPath);
-  } catch (e) {
-    console.log(e)
-    throw e
-  }
 
+    console.log(
+      `Create successfully, your projectName: ${chalk.green(`"${appName}"`)} 
+         use cd ${chalk.green(
+           `"${appName}"`
+         )} and npm install or (yarn) to enjoy it `
+    );
+  } catch (e) {
+    console.log(e);
+    process.exit(1);
+  }
 }
 
 function createDirectoryContents(templatePath, newProjectPath) {
-  const filesToCreate = fs.readdirSync(templatePath);
-  filesToCreate.forEach(file => {
+  const files = fs.readdirSync(templatePath);
+  files.forEach(file => {
     const origFilePath = `${templatePath}/${file}`;
 
     // get stats about the current file
     const stats = fs.statSync(origFilePath);
 
     if (stats.isFile()) {
-       let  contents = fs.readFileSync(origFilePath, "utf8");
-      // Rename
+      let contents = fs.readFileSync(origFilePath, "utf8");
+      // update package name
       if (file === "package.json") {
         contents = contents.replace("create-react-component", appName);
       }
