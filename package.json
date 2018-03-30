@@ -1,13 +1,24 @@
 {
-  "name": "create-react-component",
-  "version": "1.0.0",
+  "name": "@168496714/create-react-component",
+  "version": "0.1.0",
   "description": "",
-  "main": "cli",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ava": "ava",
+    "test": "ava"
   },
-  "keywords": [],
-  "author": "",
+  "bin": {
+    "create-react-component": "cli.js"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "keywords": [
+    "react",
+    "stater",
+    "component",
+    "cli"
+  ],
+  "author": "Sunner168",
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.3.2",
@@ -15,6 +26,8 @@
     "validate-npm-package-name": "^3.0.0"
   },
   "devDependencies": {
+    "ava": "^0.25.0",
+    "execa": "^0.10.0",
     "xo": "^0.20.3"
   }
 }
