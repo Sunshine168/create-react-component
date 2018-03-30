@@ -39,10 +39,10 @@ function install(dir, name) {
     process.exit(1);
   }
 
-  const packagesPath = path.resolve(dir, "packages");
+  const packagesPath = path.resolve(__dirname, "packages");
   const newProjectPath = appName;
   try {
-    fs.mkdirSync(`${DIR}/${appName}`);
+    fs.mkdirSync(`${dir}/${appName}`);
     createDirectoryContents(packagesPath, newProjectPath);
 
     console.log(
@@ -71,6 +71,9 @@ function createDirectoryContents(templatePath, newProjectPath) {
       if (file === "package.json") {
         contents = contents.replace("create-react-component", appName);
       }
+      if (file === ".npmtemplate") {
+        file = ".npmignore";
+      }
       const writePath = `${DIR}/${newProjectPath}/${file}`;
       fs.writeFileSync(writePath, contents, "utf8");
     } else if (stats.isDirectory()) {
@@ -83,6 +86,14 @@ function createDirectoryContents(templatePath, newProjectPath) {
       );
     }
   });
+}
+
+function printValidationResults(results) {
+  if (typeof results !== "undefined") {
+    results.forEach(error => {
+      console.error(chalk.red(`  *  ${error}`));
+    });
+  }
 }
 
 install(DIR, cli.input[0]);
