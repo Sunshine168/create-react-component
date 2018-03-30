@@ -1,5 +1,7 @@
 # create-react-component
 
+[![Build Status](https://img.shields.io/travis/Sunshine168/create-react-component.svg?style=flat-square)](https://travis-ci.org/Sunshine168/create-react-component)
+
 a cli to create react component simply
 
 ## feature 
@@ -41,6 +43,7 @@ yarn // or npm install
 
 ## structure
 
+```
 ├── package.json
 ├── public            
 │   ├── app.js
@@ -55,6 +58,8 @@ yarn // or npm install
 ├── webpack
 │   ├── webpack.dev.js
 │   └── webpack.prod.js 
+
+```
 
 
 ## TODO
