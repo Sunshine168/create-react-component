@@ -4,7 +4,8 @@
   "description": "",
   "main": "build/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "ava": "ava",
+    "test": "build && ava",
     "dev": "node server",
     "prebuild": "rm -rf ./build",
     "build": "webpack --config ./webpack/webpack.prod.js --progress"
@@ -13,6 +14,8 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@ava/babel-preset-stage-4": "^1.1.0",
+    "ava": "^1.0.0-beta.3",
     "@babel/core": "^7.0.0-beta.42",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.40",
     "@babel/preset-env": "^7.0.0-beta.42",
@@ -36,6 +39,12 @@
     "webpack-hot-middleware": "^2.21.0",
     "webpack": "^4.2.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "browser-env": "^3.2.5",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1"
+  },
+  "ava": {
+    "require": ["./test/helpers/browser-env.js"]
   }
 }
