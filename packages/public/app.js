@@ -1,18 +1,17 @@
-import React, { Component } from 'react'
-import { render } from 'react-dom'
+import React, { Component } from "react";
+import { render } from "react-dom";
 
-import DownloadWrapper from '../src'
+// import your component and use in here
+import HelloWorld from "../src";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <DownloadWrapper>
-          <button>download</button>
-        </DownloadWrapper>
+        <HelloWorld />
       </div>
-    )
+    );
   }
 }
 
-render(<App />, document.getElementById('app'))
+render(<App />, document.getElementById("app"));
